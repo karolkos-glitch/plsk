@@ -1,5 +1,14 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Index from '@deep/pages/Index';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Index />,
+  },
+]);
 const App = () => {
-    return <>Hello World!</>;
+  return <RouterProvider router={router} />;
 };
 
 export default App;

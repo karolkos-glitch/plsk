@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 
 interface Person {
+  greeting?: string;
   id: string;
   firstName: string;
   lastName: string;
@@ -14,12 +15,14 @@ interface Person {
 }
 const defaultData: Person[] = [
   {
+    greeting: 'Siema',
     id: '1234',
     firstName: 'Karol',
     lastName: 'Kosek',
     age: 24,
   },
   {
+    greeting: 'Elo',
     id: '3456',
     firstName: 'Kornel',
     lastName: 'Makuszynski',
@@ -33,7 +36,9 @@ const columns = [
   columnHelper.display({
     id: 'greeting',
     cell: (info) => (
-      <button onClick={() => alert(info.row.getValue('id'))}>Alert</button>
+      <button onClick={() => alert(info.row.getValue('id'))}>
+        Alert {info.row.original.greeting}
+      </button>
     ),
   }),
   columnHelper.accessor('id', {
